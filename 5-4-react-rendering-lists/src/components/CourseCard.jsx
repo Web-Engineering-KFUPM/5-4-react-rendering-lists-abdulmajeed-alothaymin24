@@ -37,7 +37,15 @@ export default function CourseCard({ course, index, onMutateCourse }) {
         {/* DISPLAY ONLY: Show a message when there are no tasks */}
         
         <ul className="tasks">
-          {/* TODO (TASK 2): Render tasks using course.tasks.map(...)
+          {course.tasks.map(task,idx => (
+            <TaskItem
+              key={task.id}
+              task={task}
+              onToggle={toggleTask}
+              onDelete={deleteTask}
+            />
+          ))
+          /* TODO (TASK 2): Render tasks using course.tasks.map(...)
               For each task, render <TaskItem /> and pass:
                 - key={task.id}
                 - task={task}
